@@ -8,3 +8,5 @@ BSD license, check license.txt for more information
 To download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Flora_Brakelight_Backpack. Check that the Flora_Brakelight_Backpack folder contains Flora_Brakelight_Backpack.ino.
 
 This code example requires the Adafruit LSM303 library which can be downloaded from https://github.com/adafruit/Adafruit_LSM303DLHC
+
+This code example also requires the Adafruit WS2801 library which can be downloaded from https://github.com/adafruit/Adafruit-WS2801-Library
