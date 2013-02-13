@@ -41,35 +41,20 @@ void loop()
   int i = currentX - prevX;
   Serial.print("Outer Loop: ");
   Serial.println(i);
-        //Serial.print("currentx: ");
-      //Serial.println(currentX);
-      //Serial.print("prevX: ");
-       //Serial.println(prevX);
   if (abs(i) > BRAKETHRESHOLD) {
     Serial.print("In outside IF: ");
     Serial.println(abs(i));
     brakeTime = millis();
     int strikes = 0;
     while ((abs(i) > BRAKETHRESHOLD) && (strikes < 3)) {
-      //Serial.println("In While");
       if (abs(i) < BRAKETHRESHOLD) {
         strikes = strikes + 1; 
       }
-      //Serial.print("strikes: ");
-      //Serial.println(strikes);
-      //Serial.println(millis() - brakeTime);
-      //Serial.println("After Break IF");
       lsm.read();
       currentX = abs(lsm.accelData.z);
-
-     
       i = currentX - prevX;
-      //prevX = currentX;
-      //Serial.println(abs(i));
       
       if ((millis() - brakeTime) > BRAKETIMETHRESHOLD) {
-        //Serial.print("Calculated time: ");
-        //Serial.println(millis() - brakeTime);
         analogWrite(speakerPin, 100);
         while (abs(i) > BRAKETHRESHOLD) {
           lsm.read();
@@ -89,7 +74,6 @@ void loop()
     }
   }
 
-  //brakeTime = millis();
   prevX = currentX;
   delay(200);
 }
